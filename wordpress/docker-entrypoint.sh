@@ -170,6 +170,5 @@ EOPHP
 fi
 
 ls | grep -v blog | xargs rm -rf
-#echo "delated"
 
 exec "$@"
