@@ -14,7 +14,7 @@ services:
     links:
        - mysqldb
     ports:
-       - "8000:80"
+       - "9000:8080"
   
   mysqldb:
      image: mysql:5.7
