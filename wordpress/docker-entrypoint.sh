@@ -25,12 +25,11 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 			echo >&2 "WARNING: $(pwd) is not empty - press Ctrl+C now if this is an error!"
 			( set -x; ls -A; sleep 10 )
 		fi
-		mkdir blog
-		tar cf - --one-file-system -C /usr/src/wordpress -C /var/www/html/blog . | tar xf -
 		tar cf - --one-file-system -C /usr/src/wordpress . | tar xf -
-		echo "$(pwd) copyed"
+		mkdir blog
 		chown -R www-data:www-data /var/www/html
-		tar cf - --one-file-system -C /usr/src/wordpress -C /var/www/html/blog . | tar xf -
+		cp -avr /usr/src/wordpress/* /var/www/html/blog/
+		#cp -avr /usr/src/wordpress/* /var/www/html/
 		chown -R www-data:www-data /var/www/html
 		echo >&2 "Complete! WordPress has been successfully copied to $(pwd)"
 		if [ ! -e .htaccess ]; then
@@ -171,6 +170,7 @@ $mysql->close();
 EOPHP
 fi
 
-#ls | grep -v blog | xargs rm -rf
+ls | grep -v blog | xargs rm -rf
+#echo "delated"
 
 exec "$@"
