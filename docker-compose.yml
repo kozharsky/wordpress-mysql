@@ -1,0 +1,30 @@
+version: '2'
+services:
+  wordpress:
+    build:
+      context:./wordpress
+    container_name: new_wordpress
+    depends_on:
+       - mysqldb
+    environment:
+      WORDPRESS_DB_HOST: mysqldb:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: user
+      WORDPRESS_DB_PASSWORD: pass
+    links:
+       - mysqldb
+    ports:
+       - "8000:80"
+  
+  mysqldb:
+     image: mysql:5.7
+     volumes:
+       - "./.data/db:/var/lib/mysql"
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: password
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: user
+       MYSQL_PASSWORD: pass
+
+    
