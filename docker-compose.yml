@@ -2,7 +2,7 @@ version: '2'
 services:
   wordpress:
     build:
-      context:./wordpress
+      context: ./wordpress
     container_name: new_wordpress
     depends_on:
        - mysqldb
