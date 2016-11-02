@@ -30,7 +30,6 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 		chown -R www-data:www-data /var/www/html
 		cp -avr /usr/src/wordpress/* /var/www/html/blog/
 		#cp -avr /usr/src/wordpress/* /var/www/html/
-		chown -R www-data:www-data /var/www/html
 		echo >&2 "Complete! WordPress has been successfully copied to $(pwd)"
 		if [ ! -e .htaccess ]; then
 			# NOTE: The "Indexes" option is disabled in the php:apache base image
