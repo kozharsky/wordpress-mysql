@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: %STACK_NAME%-wordpress
   labels:
-    app: wordpress
+    app: %STACK_NAME%-wordpress
 spec:
   ports:
     - port: 80
