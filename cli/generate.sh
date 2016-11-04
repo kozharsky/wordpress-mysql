@@ -33,6 +33,6 @@ arr_files=( $(ls templates) )
 
 for i in ${arr_files[@]}
 do 
-    sed -e 's/%VOLUME_ID_WP%/'${VOLUME_ID_WP}'/g' -e 's/%STACK_NAME%/'${STACK_NAME}'/g' templates/$i >  $STACK_NAME/$i
+    sed -e 's/%VOLUME_ID_WP%/'${VOLUME_ID_WP}'/g' -e 's/%STACK_NAME%/'${STACK_NAME}'/g' templates/$i > $STACK_NAME/$i
 done
 
