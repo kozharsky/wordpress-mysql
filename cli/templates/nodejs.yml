@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: %STACK_NAME%-nodejs
   labels:
-    app: nodejs
+    app: %STACK_NAME%-nodejs
 spec:
   ports:
     - port: 8080
