@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: %STACK_NAME%
+  name: %STACK_NAME%-wordpress
   labels:
     app: wordpress
 spec:
@@ -14,7 +14,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: %STACK_NAME%
+  name: %STACK_NAME%-wordpress
   labels:
     app: wordpress
 spec:
