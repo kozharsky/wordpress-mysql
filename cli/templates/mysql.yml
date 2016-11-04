@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: %STACK_NAME%-mysql
   labels:
-    app: ai-mysql
+    app: %STACK_NAME%-mysql
 spec:
   ports:
     - port: 3306
@@ -16,18 +16,18 @@ kind: Deployment
 metadata:
   name: %STACK_NAME%-mysql
   labels:
-    app: ai-mysql
+    app: mysql
 spec:
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: ai-mysql
+        app: mysql
     spec:
       containers:
       - image: mysql:5.6
-        name: ai-mysql
+        name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "my-secret-pw"
@@ -39,7 +39,7 @@ spec:
           value: "password"
         ports:
         - containerPort: 3306
-          name: ai-mysql
+          name: mysql
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
