@@ -32,22 +32,7 @@ arr_files=( $(ls templates) )
 
 
 for i in ${arr_files[@]}
-#for i in ./templates
 do 
-    #temp_arr=( $(echo $i | tr "." "\n") )
-    #name=${temp_arr[0]}
-    #echo $name
-    #sed 's/%STACK_NAME%/'$STACK_NAME'/g' templates/$i > $STACK_NAME/$i
-    #sed 's/%VOLUME_ID_WP%/'${VOLUME_ID_WP}'/g' $STACK_NAME/$i
     sed -e 's/%VOLUME_ID_WP%/'${VOLUME_ID_WP}'/g' -e 's/%STACK_NAME%/'${STACK_NAME}'/g' templates/$i >  $STACK_NAME/$i
 done
-
-#arr_full=( templates/* )
-#arr_file=( )
-#for i in ${arr[@]}
-#do 
-#  echo $i
-#  echo "res"
-#done
-#sed 's/%VOLUME_ID_WP%/'${VOLUME_ID_WP}'/g' templates/wordpress.yml.tpl > $STACK_NAME/wordpress.yml
 
