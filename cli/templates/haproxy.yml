@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: %STACK_NAME%-haproxy
   labels:
-    app: haproxy
+    app: %STACK_NAME%-haproxy
 spec:
   ports:
     - port: 80
