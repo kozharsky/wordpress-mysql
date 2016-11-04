@@ -3,13 +3,12 @@ kind: Service
 metadata:
   name: %STACK_NAME%-nginx
   labels:
-    app: nginx
+    app: %STACK_NAME%-nginx
 spec:
   ports:
     - port: 80
   selector:
     app: nginx
-  clusterIP: 10.244.0.29
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
